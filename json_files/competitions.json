@@ -1,0 +1,890 @@
+[
+  {
+    "id": "26",
+    "uid": "s:1~l:10~t:26",
+    "type": "team",
+    "order": 0,
+    "homeAway": "home",
+    "team": {
+      "id": "26",
+      "uid": "s:1~l:10~t:26",
+      "location": "San Francisco",
+      "name": "Giants",
+      "abbreviation": "SF",
+      "displayName": "San Francisco Giants",
+      "shortDisplayName": "Giants",
+      "color": "000000",
+      "alternateColor": "fd5a1e",
+      "isActive": true,
+      "links": [
+        {
+          "rel": [
+            "clubhouse",
+            "desktop",
+            "team"
+          ],
+          "href": "https://www.espn.com/mlb/team/_/name/sf/san-francisco-giants",
+          "text": "Clubhouse",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "roster",
+            "desktop",
+            "team"
+          ],
+          "href": "https://www.espn.com/mlb/team/roster/_/name/sf/san-francisco-giants",
+          "text": "Roster",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "roster",
+            "sportscenter",
+            "app",
+            "team"
+          ],
+          "href": "sportscenter://x-callback-url/showClubhouse?uid=s:1~l:10~t:26&section=roster",
+          "text": "Roster",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "stats",
+            "desktop",
+            "team"
+          ],
+          "href": "https://www.espn.com/mlb/team/stats/_/name/sf/san-francisco-giants",
+          "text": "Statistics",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "stats",
+            "sportscenter",
+            "app",
+            "team"
+          ],
+          "href": "sportscenter://x-callback-url/showClubhouse?uid=s:1~l:10~t:26&section=stats",
+          "text": "Statistics",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "schedule",
+            "desktop",
+            "team"
+          ],
+          "href": "https://www.espn.com/mlb/team/schedule/_/name/sf",
+          "text": "Schedule",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "schedule",
+            "sportscenter",
+            "app",
+            "team"
+          ],
+          "href": "sportscenter://x-callback-url/showClubhouse?uid=s:1~l:10~t:26&section=scores",
+          "text": "Schedule",
+          "isExternal": false,
+          "isPremium": false
+        }
+      ],
+      "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/sf.png"
+    },
+    "score": "0",
+    "linescores": [
+      {
+        "value": 0.0,
+        "displayValue": "0",
+        "period": 1
+      },
+      {
+        "value": 0.0,
+        "displayValue": "0",
+        "period": 2
+      }
+    ],
+    "statistics": [
+      {
+        "name": "hits",
+        "abbreviation": "H",
+        "displayValue": "1"
+      },
+      {
+        "name": "runs",
+        "abbreviation": "R",
+        "displayValue": "0"
+      },
+      {
+        "name": "avg",
+        "abbreviation": "AVG",
+        "displayValue": ".200"
+      },
+      {
+        "name": "saves",
+        "abbreviation": "SV",
+        "displayValue": "0"
+      },
+      {
+        "name": "losses",
+        "abbreviation": "L",
+        "displayValue": "0"
+      },
+      {
+        "name": "wins",
+        "abbreviation": "W",
+        "displayValue": "0"
+      },
+      {
+        "name": "ERA",
+        "abbreviation": "ERA",
+        "displayValue": "0.00"
+      },
+      {
+        "name": "errors",
+        "abbreviation": "E",
+        "displayValue": "0"
+      }
+    ],
+    "leaders": [
+      {
+        "name": "avg",
+        "displayName": "Batting Average",
+        "shortDisplayName": "BA",
+        "abbreviation": "AVG",
+        "leaders": [
+          {
+            "displayValue": "1-1",
+            "value": 1.0,
+            "athlete": {
+              "id": "4301949",
+              "fullName": "Casey Schmitt",
+              "displayName": "Casey Schmitt",
+              "shortName": "C. Schmitt",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/4301949"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/4301949.png",
+              "jersey": "10",
+              "position": {
+                "abbreviation": "LF"
+              },
+              "team": {
+                "id": "26"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "26"
+            }
+          }
+        ]
+      },
+      {
+        "name": "homeRuns",
+        "displayName": "Home Runs",
+        "shortDisplayName": "HR",
+        "abbreviation": "HR",
+        "leaders": [
+          {
+            "displayValue": "0-0",
+            "value": 0.0,
+            "athlete": {
+              "id": "33675",
+              "fullName": "Willy Adames",
+              "displayName": "Willy Adames",
+              "shortName": "W. Adames",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/33675"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/33675.png",
+              "jersey": "2",
+              "position": {
+                "abbreviation": "SS"
+              },
+              "team": {
+                "id": "26"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "26"
+            }
+          }
+        ]
+      },
+      {
+        "name": "RBIs",
+        "displayName": "Runs Batted In",
+        "shortDisplayName": "RBI",
+        "abbreviation": "RBI",
+        "leaders": [
+          {
+            "displayValue": "0-0",
+            "value": 0.0,
+            "athlete": {
+              "id": "33675",
+              "fullName": "Willy Adames",
+              "displayName": "Willy Adames",
+              "shortName": "W. Adames",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/33675"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/33675.png",
+              "jersey": "2",
+              "position": {
+                "abbreviation": "SS"
+              },
+              "team": {
+                "id": "26"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "26"
+            }
+          }
+        ]
+      },
+      {
+        "name": "MLBRating",
+        "displayName": "MLB Rating",
+        "shortDisplayName": "RAT",
+        "abbreviation": "RAT",
+        "leaders": [
+          {
+            "displayValue": "1-1",
+            "value": 61.0,
+            "athlete": {
+              "id": "4301949",
+              "fullName": "Casey Schmitt",
+              "displayName": "Casey Schmitt",
+              "shortName": "C. Schmitt",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/4301949"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/4301949.png",
+              "jersey": "10",
+              "position": {
+                "abbreviation": "LF"
+              },
+              "team": {
+                "id": "26"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "26"
+            }
+          }
+        ]
+      },
+      {
+        "name": "MLBRating",
+        "displayName": "MLB Rating",
+        "shortDisplayName": "MLB",
+        "abbreviation": "MLB",
+        "leaders": [
+          {
+            "displayValue": "1-1",
+            "value": 61.0,
+            "athlete": {
+              "id": "4301949",
+              "fullName": "Casey Schmitt",
+              "displayName": "Casey Schmitt",
+              "shortName": "C. Schmitt",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/4301949"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/4301949.png",
+              "jersey": "10",
+              "position": {
+                "abbreviation": "LF"
+              },
+              "team": {
+                "id": "26"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "26"
+            }
+          }
+        ]
+      }
+    ],
+    "probables": [
+      {
+        "name": "probableStartingPitcher",
+        "displayName": "Probable Starting Pitcher",
+        "shortDisplayName": "Starter",
+        "abbreviation": "SP",
+        "playerId": 34973,
+        "athlete": {
+          "id": "34973",
+          "fullName": "Tyler Mahle",
+          "displayName": "Tyler Mahle",
+          "shortName": "T. Mahle",
+          "links": [
+            {
+              "rel": [
+                "playercard",
+                "desktop",
+                "athlete"
+              ],
+              "href": "https://www.espn.com/mlb/player/_/id/34973"
+            }
+          ],
+          "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/34973.png",
+          "jersey": "54",
+          "position": "SP",
+          "team": {
+            "id": "26"
+          }
+        },
+        "statistics": [
+          {
+            "name": "saves",
+            "abbreviation": "SV",
+            "displayValue": "0",
+            "rankDisplayValue": "Tied-215th"
+          },
+          {
+            "name": "losses",
+            "abbreviation": "L",
+            "displayValue": "9",
+            "rankDisplayValue": "Tied-5th"
+          },
+          {
+            "name": "wins",
+            "abbreviation": "W",
+            "displayValue": "2",
+            "rankDisplayValue": "Tied-256th"
+          },
+          {
+            "name": "ERA",
+            "abbreviation": "ERA",
+            "displayValue": "5.31"
+          },
+          {
+            "name": "errors",
+            "abbreviation": "E",
+            "displayValue": "1",
+            "rankDisplayValue": "Tied-330th"
+          }
+        ],
+        "record": "(2-9, 5.31)"
+      }
+    ],
+    "hits": 1,
+    "errors": 0,
+    "records": [
+      {
+        "name": "overall",
+        "abbreviation": "Total",
+        "type": "total",
+        "summary": "44-61"
+      },
+      {
+        "name": "Home",
+        "abbreviation": "Home",
+        "type": "home",
+        "summary": "24-26"
+      },
+      {
+        "name": "Road",
+        "abbreviation": "AWAY",
+        "type": "road",
+        "summary": "20-35"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "uid": "s:1~l:10~t:8",
+    "type": "team",
+    "order": 1,
+    "homeAway": "away",
+    "team": {
+      "id": "8",
+      "uid": "s:1~l:10~t:8",
+      "location": "Milwaukee",
+      "name": "Brewers",
+      "abbreviation": "MIL",
+      "displayName": "Milwaukee Brewers",
+      "shortDisplayName": "Brewers",
+      "color": "13294b",
+      "alternateColor": "ffc72c",
+      "isActive": true,
+      "links": [
+        {
+          "rel": [
+            "clubhouse",
+            "desktop",
+            "team"
+          ],
+          "href": "https://www.espn.com/mlb/team/_/name/mil/milwaukee-brewers",
+          "text": "Clubhouse",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "roster",
+            "desktop",
+            "team"
+          ],
+          "href": "https://www.espn.com/mlb/team/roster/_/name/mil/milwaukee-brewers",
+          "text": "Roster",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "roster",
+            "sportscenter",
+            "app",
+            "team"
+          ],
+          "href": "sportscenter://x-callback-url/showClubhouse?uid=s:1~l:10~t:8&section=roster",
+          "text": "Roster",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "stats",
+            "desktop",
+            "team"
+          ],
+          "href": "https://www.espn.com/mlb/team/stats/_/name/mil/milwaukee-brewers",
+          "text": "Statistics",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "stats",
+            "sportscenter",
+            "app",
+            "team"
+          ],
+          "href": "sportscenter://x-callback-url/showClubhouse?uid=s:1~l:10~t:8&section=stats",
+          "text": "Statistics",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "schedule",
+            "desktop",
+            "team"
+          ],
+          "href": "https://www.espn.com/mlb/team/schedule/_/name/mil",
+          "text": "Schedule",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "rel": [
+            "schedule",
+            "sportscenter",
+            "app",
+            "team"
+          ],
+          "href": "sportscenter://x-callback-url/showClubhouse?uid=s:1~l:10~t:8&section=scores",
+          "text": "Schedule",
+          "isExternal": false,
+          "isPremium": false
+        }
+      ],
+      "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/mil.png"
+    },
+    "score": "0",
+    "linescores": [
+      {
+        "value": 0.0,
+        "displayValue": "0",
+        "period": 1
+      },
+      {
+        "value": 0.0,
+        "displayValue": "0",
+        "period": 2
+      }
+    ],
+    "statistics": [
+      {
+        "name": "hits",
+        "abbreviation": "H",
+        "displayValue": "1"
+      },
+      {
+        "name": "runs",
+        "abbreviation": "R",
+        "displayValue": "0"
+      },
+      {
+        "name": "avg",
+        "abbreviation": "AVG",
+        "displayValue": ".167"
+      },
+      {
+        "name": "saves",
+        "abbreviation": "SV",
+        "displayValue": "0"
+      },
+      {
+        "name": "losses",
+        "abbreviation": "L",
+        "displayValue": "0"
+      },
+      {
+        "name": "wins",
+        "abbreviation": "W",
+        "displayValue": "0"
+      },
+      {
+        "name": "ERA",
+        "abbreviation": "ERA",
+        "displayValue": "0.00"
+      },
+      {
+        "name": "errors",
+        "abbreviation": "E",
+        "displayValue": "1"
+      }
+    ],
+    "leaders": [
+      {
+        "name": "avg",
+        "displayName": "Batting Average",
+        "shortDisplayName": "BA",
+        "abbreviation": "AVG",
+        "leaders": [
+          {
+            "displayValue": "1-1",
+            "value": 1.0,
+            "athlete": {
+              "id": "35013",
+              "fullName": "Jake Bauers",
+              "displayName": "Jake Bauers",
+              "shortName": "J. Bauers",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/35013"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/35013.png",
+              "jersey": "9",
+              "position": {
+                "abbreviation": "1B"
+              },
+              "team": {
+                "id": "8"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "8"
+            }
+          }
+        ]
+      },
+      {
+        "name": "homeRuns",
+        "displayName": "Home Runs",
+        "shortDisplayName": "HR",
+        "abbreviation": "HR",
+        "leaders": [
+          {
+            "displayValue": "0-1",
+            "value": 0.0,
+            "athlete": {
+              "id": "31283",
+              "fullName": "Christian Yelich",
+              "displayName": "Christian Yelich",
+              "shortName": "C. Yelich",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/31283"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/31283.png",
+              "jersey": "22",
+              "position": {
+                "abbreviation": "DH"
+              },
+              "team": {
+                "id": "8"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "8"
+            }
+          }
+        ]
+      },
+      {
+        "name": "RBIs",
+        "displayName": "Runs Batted In",
+        "shortDisplayName": "RBI",
+        "abbreviation": "RBI",
+        "leaders": [
+          {
+            "displayValue": "0-1",
+            "value": 0.0,
+            "athlete": {
+              "id": "31283",
+              "fullName": "Christian Yelich",
+              "displayName": "Christian Yelich",
+              "shortName": "C. Yelich",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/31283"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/31283.png",
+              "jersey": "22",
+              "position": {
+                "abbreviation": "DH"
+              },
+              "team": {
+                "id": "8"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "8"
+            }
+          }
+        ]
+      },
+      {
+        "name": "MLBRating",
+        "displayName": "MLB Rating",
+        "shortDisplayName": "RAT",
+        "abbreviation": "RAT",
+        "leaders": [
+          {
+            "displayValue": "1-1",
+            "value": 61.0,
+            "athlete": {
+              "id": "35013",
+              "fullName": "Jake Bauers",
+              "displayName": "Jake Bauers",
+              "shortName": "J. Bauers",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/35013"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/35013.png",
+              "jersey": "9",
+              "position": {
+                "abbreviation": "1B"
+              },
+              "team": {
+                "id": "8"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "8"
+            }
+          }
+        ]
+      },
+      {
+        "name": "MLBRating",
+        "displayName": "MLB Rating",
+        "shortDisplayName": "MLB",
+        "abbreviation": "MLB",
+        "leaders": [
+          {
+            "displayValue": "1-1",
+            "value": 61.0,
+            "athlete": {
+              "id": "35013",
+              "fullName": "Jake Bauers",
+              "displayName": "Jake Bauers",
+              "shortName": "J. Bauers",
+              "links": [
+                {
+                  "rel": [
+                    "playercard",
+                    "desktop",
+                    "athlete"
+                  ],
+                  "href": "https://www.espn.com/mlb/player/_/id/35013"
+                }
+              ],
+              "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/35013.png",
+              "jersey": "9",
+              "position": {
+                "abbreviation": "1B"
+              },
+              "team": {
+                "id": "8"
+              },
+              "active": true
+            },
+            "team": {
+              "id": "8"
+            }
+          }
+        ]
+      }
+    ],
+    "probables": [
+      {
+        "name": "probableStartingPitcher",
+        "displayName": "Probable Starting Pitcher",
+        "shortDisplayName": "Starter",
+        "abbreviation": "SP",
+        "playerId": 4621041,
+        "athlete": {
+          "id": "4621041",
+          "fullName": "Brandon Sproat",
+          "displayName": "Brandon Sproat",
+          "shortName": "B. Sproat",
+          "links": [
+            {
+              "rel": [
+                "playercard",
+                "desktop",
+                "athlete"
+              ],
+              "href": "https://www.espn.com/mlb/player/_/id/4621041"
+            }
+          ],
+          "headshot": "https://a.espncdn.com/i/headshots/mlb/players/full/4621041.png",
+          "jersey": "23",
+          "position": "SP",
+          "team": {
+            "id": "8"
+          }
+        },
+        "statistics": [
+          {
+            "name": "saves",
+            "abbreviation": "SV",
+            "displayValue": "0",
+            "rankDisplayValue": "Tied-215th"
+          },
+          {
+            "name": "losses",
+            "abbreviation": "L",
+            "displayValue": "5",
+            "rankDisplayValue": "Tied-92nd"
+          },
+          {
+            "name": "wins",
+            "abbreviation": "W",
+            "displayValue": "3",
+            "rankDisplayValue": "Tied-177th"
+          },
+          {
+            "name": "ERA",
+            "abbreviation": "ERA",
+            "displayValue": "5.09"
+          },
+          {
+            "name": "errors",
+            "abbreviation": "E",
+            "displayValue": "0",
+            "rankDisplayValue": "Tied-566th"
+          }
+        ],
+        "record": "(3-5, 5.09)"
+      }
+    ],
+    "hits": 1,
+    "errors": 1,
+    "records": [
+      {
+        "name": "overall",
+        "abbreviation": "Total",
+        "type": "total",
+        "summary": "66-39"
+      },
+      {
+        "name": "Home",
+        "abbreviation": "Home",
+        "type": "home",
+        "summary": "36-20"
+      },
+      {
+        "name": "Road",
+        "abbreviation": "AWAY",
+        "type": "road",
+        "summary": "30-19"
+      }
+    ]
+  }
+]
