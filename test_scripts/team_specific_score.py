@@ -13,9 +13,14 @@ response = requests.request("GET", url)
 data = response.json()
 
 
-for event in data['events']:
-    for competitors in event['competitions'][0]['competitors']:
-        team = competitors['team']['abbreviation']
-        if team == 'CHC':
-            score = competitors['score']
-            print(score)
+
+def get_team_score(team_abbreviation):
+    for event in data['events']:
+        for competitors in event['competitions'][0]['competitors']:
+            team = competitors['team']['abbreviation']
+            if team == team_abbreviation:
+                score = competitors['score']
+                return int(score)
+
+# team_abbreviation = 'CHC'  # Example team abbreviation
+# get_team_score('NYY')
