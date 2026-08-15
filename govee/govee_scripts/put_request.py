@@ -2,7 +2,7 @@ import requests
 import os
 from dotenv import load_dotenv
 import json
-from devices import DEVICES
+from load_and_save import load_devices, save_devices
 
 load_dotenv()  # finds and reads .env in the current directory
 
@@ -12,6 +12,11 @@ headers = {
     "Content-Type": "application/json",
     "Govee-API-Key": os.getenv("GOVEE_KEY")
 }
+
+
+DEVICES = load_devices()  # Load devices from the JSON file
+
+
 
 def onOffLight(light_location,light_state):
     light_info = DEVICES[light_location]  # Get the device info for the specified location
@@ -34,24 +39,23 @@ def onOffLight(light_location,light_state):
         print(f"Error {response.status_code}: {response.text}")
     else:
         data = response.json()
+        DEVICES[light_location]["state"] = light_state  # Update the state in the DEVICES dictionary
+        save_devices(DEVICES)  # Save the updated DEVICES dictionary to the JSON file
         print(json.dumps(data, indent=2))
 
 
 
 
-def rgbLight(light_location,hex_color):
-    light_info = DEVICES[light_location]  # Get the device info for the specified location
+def rgbLight(light_location, hex_color):
+    light_info = DEVICES[light_location]
     decimal_value = int(hex_color.lstrip("#"), 16)
 
     payload = {
-        "requestId": "officeLight1_on",
+        "requestId": light_info["device"] + "_color_change",
         "payload": {
             "sku": light_info["sku"],
             "device": light_info["device"],
             "capability": {
-                # "type": "devices.capabilities.on_off",
-                # "instance": "powerSwitch",
-                # "value": 0
                 "type": "devices.capabilities.color_setting",
                 "instance": "colorRgb",
                 "value": decimal_value
@@ -64,8 +68,11 @@ def rgbLight(light_location,hex_color):
         print(f"Error {response.status_code}: {response.text}")
     else:
         data = response.json()
-        print(json.dumps(data, indent=2))
+        DEVICES[light_location]["color"] = hex_color  # Update the color in the DEVICES dictionary
+        save_devices(DEVICES)  # Save the updated DEVICES dictionary to the JSON file
+        print(light_location + " color changed to " + hex_color)
+        
 
 
-onOffLight("office1", 1)  # Turn on the light
-rgbLight("office1", "#FF0000")
+rgbLight("office2", "#00FF00")  # Change the light color to red
+onOffLight("office2", 1)  # Turn on the light

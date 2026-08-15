@@ -1,0 +1,14 @@
+{
+  "office1": {
+    "sku": "H6008",
+    "device": "37:EB:D0:C9:07:F6:68:C8",
+    "color": "#FF0000",
+    "state": 1
+  },
+  "office2": {
+    "sku": "H6008",
+    "device": "26:1A:D0:C9:07:FE:2C:C6",
+    "color": "#00FF00",
+    "state": 1
+  }
+}
