@@ -36,10 +36,9 @@ def get_current_device_colors(light_location):
     
     data = response.json()
 
-    values_by_instance = {
-        cap["instance"]: cap["state"]["value"]
-        for cap in data["payload"]["capabilities"]
-    }
+    values_by_instance = {}
+    for cap in data["payload"]["capabilities"]:
+        values_by_instance[cap["instance"]] = cap["state"]["value"]
 
     state = values_by_instance.get("powerSwitch")
     brightness = values_by_instance.get("brightness")
@@ -53,5 +52,3 @@ def get_current_device_colors(light_location):
           f"brightness={brightness}, color=#{color}, color_temp={color_temp}K")
 
     return state, brightness, color, color_temp
-
-get_current_device_colors("office2")  # Example usage for the "office1" device
