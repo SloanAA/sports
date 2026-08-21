@@ -23,9 +23,14 @@ DEVICES = load_devices()  # Load devices from the JSON file
 
 def onOffLight(light_location,light_state):
     light_info = DEVICES[light_location]  # Get the device info for the specified location
+    if light_state == True or light_state == 1:
+        light_state_word = "On"
+
+    elif light_state == False or light_state == 0:
+        light_state_word = "Off"
 
     payload = {
-        "requestId": "officeLight1_on",
+        "requestId": "officeLight1_" + light_state_word,
         "payload": {
             "sku": light_info["sku"],
             "device": light_info["device"],
@@ -40,11 +45,12 @@ def onOffLight(light_location,light_state):
 
     if response.status_code != 200:
         print(f"Error {response.status_code}: {response.text}")
-    else:
-        data = response.json()
-        DEVICES[light_location]["state"] = light_state  # Update the state in the DEVICES dictionary
-        save_devices(DEVICES)  # Save the updated DEVICES dictionary to the JSON file
-        print(json.dumps(data, indent=2))
+        return
+
+    data = response.json()
+    DEVICES[light_location]["state"] = light_state  # Update the state in the DEVICES dictionary
+    save_devices(DEVICES)  # Save the updated DEVICES dictionary to the JSON file
+
 
 
 def rgbLight(light_location, hex_color):
@@ -108,5 +114,35 @@ def colorTempLight(light_location, color_temp):
     print(f"{light_location} color temperature changed to {color_temp}K")
 
 
+def rgbBrightness(light_location, brightness):
+    light_info = DEVICES[light_location]
+
+
+    payload = {
+        "requestId": light_info["device"] + "_brightness_change",
+        "payload": {
+            "sku": light_info["sku"],
+            "device": light_info["device"],
+            "capability": {
+                "type": "devices.capabilities.color_setting",
+                "instance": "brightness",
+                "value": brightness
+            }
+        }
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+
+    if response.status_code != 200:
+        print(f"Error {response.status_code}: {response.text}")
+        return
+
+    DEVICES[light_location]["currentState"]["brightness"] = brightness
+
+    save_devices(DEVICES)
+
+    print(f"{light_location} brightness changed to {brightness}")
+
 # rgbLight("office1", "#00FF00")  # Change the light color to red
-# onOffLight("office2", 1)  # Turn on the light
+# onOffLight("office1", 0)  # Turn off the light
+# rgbBrightness("office1", 50)  # Change the light brightness to 50%

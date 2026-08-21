@@ -1,3 +1,4 @@
+from test_scripts.next_game import get_next_game
 from test_scripts.team_specific_score import get_team_score
 import time
 import threading
@@ -6,6 +7,10 @@ from govee.govee_scripts.put_request import rgbLight, colorTempLight
 from team_color import get_team_color
 from govee.govee_scripts.state_request import get_current_device_colors, DEVICES
 from concurrent.futures import ThreadPoolExecutor
+from test_scripts.game_live import get_game_state
+from datetime import datetime
+from score_trigger import score_trigger
+from test_scripts.game_summary import get_game_summary
 import json
 import os
 
@@ -16,42 +21,55 @@ def monitor_team_score(team_abbreviation, score_trigger):
     old_score = 0
 
     #establish a current state when first running script
-    for location in DEVICES:
-        state, brightness, color, color_temp = get_current_device_colors(location)
-        DEVICES[location]["currentState"] = {
-            "state": state,
-            "brightness": brightness,
-            "color": color,
-            "color_temp": color_temp
-        }
+    # for location in DEVICES:
+    #     state, brightness, color, color_temp = get_current_device_colors(location)
+    #     DEVICES[location]["currentState"] = {
+    #         "state": state,
+    #         "brightness": brightness,
+    #         "color": color,
+    #         "color_temp": color_temp
+    #     }
     
-    save_devices(DEVICES)  # save that current state
+    # save_devices(DEVICES)  # save that current state
+
+    while get_game_state(team_abbreviation) == "pre":
+        print(f"--------------------------------")
+
+        now=datetime.now()
+        print(f"{now.strftime("%I:%M:%S %p")}\nWaiting for {team_abbreviation} game to start...")
+
+        print(f"Next game for {team_abbreviation} is at {get_next_game(team_abbreviation)}")
+
+        time.sleep(15)  # Wait for 15 seconds before checking again
 
     #run indefinitely to monitor the score, need to change till while game in progress
-    while True:
-
+    while get_game_state(team_abbreviation) == "in":
+        now=datetime.now()
         new_score = get_team_score(team_abbreviation)
+
         print(f"--------------------------------")
-        print(f"{team_abbreviation} Score: {new_score}")
+        print(f"{now.strftime("%I:%M:%S %p")}  {team_abbreviation} Score: {new_score}")
 
         if old_score != new_score:
 
             print(f"{team_abbreviation}: Score changed from {old_score} to {new_score}")
             score_trigger(team_abbreviation)  # Call the score_trigger function with the team abbreviation if there's a change
-        else:
+        # else:
+
+
 
             
+            # handling this inside score trigger
+            # for location in DEVICES:
+            #         state, brightness, color, color_temp = get_current_device_colors(location)
+            #         DEVICES[location]["currentState"] = {
+            #             "state": state,
+            #             "brightness": brightness,
+            #             "color": color,
+            #             "color_temp": color_temp
+            #         }
 
-            for location in DEVICES:
-                    state, brightness, color, color_temp = get_current_device_colors(location)
-                    DEVICES[location]["currentState"] = {
-                        "state": state,
-                        "brightness": brightness,
-                        "color": color,
-                        "color_temp": color_temp
-                    }
-
-            save_devices(DEVICES)  # Save the updated DEVICES dictionary to the JSON file
+            # save_devices(DEVICES)  # Save the updated DEVICES dictionary to the JSON file
 
         old_score = new_score
 
@@ -60,38 +78,15 @@ def monitor_team_score(team_abbreviation, score_trigger):
         if sleep_time > 0:
             time.sleep(sleep_time)
 
-def score_trigger(team_abbreviation): #still triggers on None --> 0
-    print("Score changed! Triggering Govee lights.")
+    if get_game_state(team_abbreviation) == "post":
+        game_summary = get_game_summary(team_abbreviation)
 
-    for location in DEVICES:
-         DEVICES[location]["previousState"] = DEVICES[location]["currentState"]  # Save the current state as previous state
+        team, my_score, my_hits, my_errors, my_records, opponent, opponent_score, opponent_hits, opponent_errors, opponent_records = get_game_summary(team_abbreviation)
+
+        print(f"Final    Runs    Hits    Errors")
+        print(f"{team}      {my_score}       {my_hits}       {my_errors}         ({my_records})")
+        print(f"{opponent}      {opponent_score}       {opponent_hits}       {opponent_errors}         ({opponent_records})")
 
 
-    colors = list(get_team_color(team_abbreviation))
-
-    for n in range(4):  # Change the lights 4 times
-        with ThreadPoolExecutor(max_workers=len(DEVICES)) as executor:
-            for i, location in enumerate(DEVICES):
-                color = colors[(i + n) % len(colors)]  # Cycle through the colors
-                executor.submit(rgbLight, location, color)
-            time.sleep(1)
-            print("WAIT")
-
-    with ThreadPoolExecutor(max_workers=len(DEVICES) * 2) as executor:
-        for location in DEVICES:
-            previous = DEVICES[location]["previousState"]
-
-            color = previous["color"]
-            color_temp = previous["color_temp"]
-
-            if color_temp:
-                executor.submit(colorTempLight, location, color_temp)
-                print(f"{location}: restoring {color_temp}K")
-            else:
-                executor.submit(rgbLight, location, color)
-                print(f"{location}: restoring {color}")
-
-        print("Done score trigger")
-
-monitor_team = "SEA"  # Example team abbreviation
+monitor_team = "CHC"  # Example team abbreviation
 monitor_team_score(monitor_team, score_trigger)

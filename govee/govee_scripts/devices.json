@@ -5,15 +5,16 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "ff0000",
-      "color_temp": 0
+      "color": "ffae54",
+      "color_temp": 2700
     },
     "previousState": {
-      "state": 0,
-      "brightness": 100,
-      "color": "ff0000",
+      "state": 1,
+      "brightness": 10,
+      "color": "0004ff",
       "color_temp": 0
-    }
+    },
+    "state": 0
   },
   "office2": {
     "sku": "H6008",
@@ -21,14 +22,15 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "ff0000",
-      "color_temp": 0
+      "color": "ffae54",
+      "color_temp": 2700
     },
     "previousState": {
       "state": 0,
-      "brightness": 100,
-      "color": "ff0000",
+      "brightness": 10,
+      "color": "ffffff",
       "color_temp": 0
-    }
+    },
+    "state": 0
   }
 }
