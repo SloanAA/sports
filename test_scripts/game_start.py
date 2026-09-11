@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 utc_time = datetime.fromisoformat("2026-08-21T20:10:00Z".replace("Z", "+00:00"))
 eastern_time = utc_time.astimezone(ZoneInfo("America/New_York"))
 
-def get_next_game(team_abbreviation):
+def get_game_start(team_abbreviation):
     load_dotenv()  # finds and reads .env in the current directory
 
     url = "http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard"

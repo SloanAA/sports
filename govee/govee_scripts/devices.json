@@ -5,8 +5,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": null,
-      "color_temp": 2700
+      "color": "#0004FF",
+      "color_temp": 0
     },
     "previousState": {
       "state": 1,
@@ -22,8 +22,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": null,
-      "color_temp": 2700
+      "color": "#FFFFFF",
+      "color_temp": 0
     },
     "previousState": {
       "state": 0,

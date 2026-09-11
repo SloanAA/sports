@@ -20,4 +20,4 @@ def get_game_state(team_abbreviation):
                 status = event['competitions'][0]['status']['type']['state']
                 return status
 
-# print(get_game_state('MIL'))
+print(get_game_state('SF'))

@@ -1,4 +1,4 @@
-from test_scripts.next_game import get_next_game
+from test_scripts.game_start import get_game_start
 from test_scripts.team_specific_score import get_team_score
 import time
 import threading

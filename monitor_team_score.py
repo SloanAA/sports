@@ -1,4 +1,3 @@
-from test_scripts.next_game import get_next_game
 from test_scripts.team_specific_score import get_team_score
 import time
 import threading
@@ -8,9 +7,11 @@ from team_color import get_team_color
 from govee.govee_scripts.state_request import get_current_device_colors, DEVICES
 from concurrent.futures import ThreadPoolExecutor
 from test_scripts.game_live import get_game_state
+from test_scripts.game_start import get_game_start
 from datetime import datetime
 from score_trigger import score_trigger
 from test_scripts.game_summary import get_game_summary
+from test_scripts.next_game_start import get_next_game_start
 import json
 import os
 
@@ -38,7 +39,7 @@ def monitor_team_score(team_abbreviation, score_trigger):
         now=datetime.now()
         print(f"{now.strftime("%I:%M:%S %p")}\nWaiting for {team_abbreviation} game to start...")
 
-        print(f"Next game for {team_abbreviation} is at {get_next_game(team_abbreviation)}")
+        print(f"Next game for {team_abbreviation} is at {get_game_state(team_abbreviation)}")
 
         time.sleep(15)  # Wait for 15 seconds before checking again
 
@@ -87,6 +88,26 @@ def monitor_team_score(team_abbreviation, score_trigger):
         print(f"{team}      {my_score}       {my_hits}       {my_errors}         ({my_records})")
         print(f"{opponent}      {opponent_score}       {opponent_hits}       {opponent_errors}         ({opponent_records})")
 
+        print("-----------------------------------------------")
+        matchup, date, shortDetail = get_next_game_start(team_abbreviation)
+        print(f"Next game for {team_abbreviation}")
+        print(matchup, shortDetail)
+
+
+        print(date)
+
+        cron_minute = date.minute
+        cron_hour = date.hour
+        cron_day = date.day
+        cron_month = date.month
+
+        print(cron_month, cron_day, cron_hour, cron_minute)
+        time.sleep(15)  # Wait for 15 seconds before checking again
 
 monitor_team = "CHC"  # Example team abbreviation
-monitor_team_score(monitor_team, score_trigger)
+
+def run_monitor_team_score():
+    while True:
+        monitor_team_score(monitor_team, score_trigger)
+
+run_monitor_team_score()
