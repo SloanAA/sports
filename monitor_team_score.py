@@ -37,7 +37,7 @@ def monitor_team_score(team_abbreviation, score_trigger):
         print(f"--------------------------------")
 
         now=datetime.now()
-        print(f"{now.strftime("%I:%M:%S %p")}\nWaiting for {team_abbreviation} game to start...")
+        print(f"{now.strftime('%I:%M:%S %p')}\nWaiting for {team_abbreviation} game to start...")
 
         print(f"Next game for {team_abbreviation} is at {get_game_state(team_abbreviation)}")
 
@@ -49,7 +49,7 @@ def monitor_team_score(team_abbreviation, score_trigger):
         new_score = get_team_score(team_abbreviation)
 
         print(f"--------------------------------")
-        print(f"{now.strftime("%I:%M:%S %p")}  {team_abbreviation} Score: {new_score}")
+        print(f"{now.strftime('%I:%M:%S %p')}  {team_abbreviation} Score: {new_score}")
 
         if old_score != new_score:
 
