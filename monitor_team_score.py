@@ -15,7 +15,52 @@ from test_scripts.next_game_start import get_next_game_start
 import json
 import os
 
+import argparse
 
+TEAM_ABBREVIATIONS = {
+    "diamondbacks": "ARI", "dbacks": "ARI", "ari": "ARI",
+    "braves": "ATL", "atl": "ATL",
+    "orioles": "BAL", "bal": "BAL",
+    "redsox": "BOS", "bos": "BOS",
+    "cubs": "CHC", "chc": "CHC",
+    "whitesox": "CHW", "chw": "CHW",
+    "reds": "CIN", "cin": "CIN",
+    "guardians": "CLE", "cle": "CLE",
+    "rockies": "COL", "col": "COL",
+    "tigers": "DET", "det": "DET",
+    "astros": "HOU", "hou": "HOU",
+    "royals": "KC", "kc": "KC",
+    "angels": "LAA", "laa": "LAA",
+    "dodgers": "LAD", "lad": "LAD",
+    "marlins": "MIA", "mia": "MIA",
+    "brewers": "MIL", "mil": "MIL",
+    "twins": "MIN", "min": "MIN",
+    "mets": "NYM", "nym": "NYM",
+    "yankees": "NYY", "nyy": "NYY",
+    "athletics": "OAK", "oak": "OAK",
+    "phillies": "PHI", "phi": "PHI",
+    "pirates": "PIT", "pit": "PIT",
+    "padres": "SD", "sd": "SD",
+    "giants": "SF", "sf": "SF",
+    "mariners": "SEA", "sea": "SEA",
+    "cardinals": "STL", "stl": "STL",
+    "rays": "TB", "tb": "TB",
+    "rangers": "TEX", "tex": "TEX",
+    "bluejays": "TOR", "tor": "TOR",
+    "nationals": "WSH", "wsh": "WSH",
+}
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Monitor a team's live score.")
+    parser.add_argument("team", help="Team name or abbreviation, e.g. 'yankees' or 'nyy'")
+    return parser.parse_args()
+
+def get_selected_team(args):
+    key = args.team.lower().replace(" ", "")
+    if key not in TEAM_ABBREVIATIONS:
+        valid = ", ".join(sorted(set(TEAM_ABBREVIATIONS.keys())))
+        raise SystemExit(f"Unknown team '{args.team}'. Valid options:\n{valid}")
+    return TEAM_ABBREVIATIONS[key]
 
 def monitor_team_score(team_abbreviation, score_trigger):
     next_call = time.monotonic()
@@ -106,8 +151,13 @@ def monitor_team_score(team_abbreviation, score_trigger):
 
 monitor_team = "CHC"  # Example team abbreviation
 
-def run_monitor_team_score():
+def run_monitor_team_score(team_abbreviation):
     while True:
-        monitor_team_score(monitor_team, score_trigger)
+        monitor_team_score(team_abbreviation, score_trigger)
 
-run_monitor_team_score()
+# run_monitor_team_score()
+
+if __name__ == "__main__":
+    args = parse_args()
+    monitor_team = get_selected_team(args)
+    run_monitor_team_score(monitor_team)
