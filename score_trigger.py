@@ -40,7 +40,7 @@ def score_trigger(team_abbreviation): #still triggers on None --> 0
                 color = colors[(i + n) % len(colors)]  # Cycle through the colors
                 executor.submit(rgbLight, location, color)
             time.sleep(1)
-            print("WAIT")
+            print("CHANGE LIGHTS")
 
     with ThreadPoolExecutor(max_workers=len(DEVICES) * 2) as executor:
         print("Restoring previous state of lights...")
@@ -54,19 +54,19 @@ def score_trigger(team_abbreviation): #still triggers on None --> 0
             color_temp = previous["color_temp"]
             brightness = previous["brightness"]
 
-            print(f"{location}, {state}, {color}, {color_temp}, {brightness}")
+            # print(f"{location}, {state}, {color}, {color_temp}, {brightness}")
             if (state == 0):
                 executor.submit(onOffLight, location, 0)
             else:
                 if color_temp:
                     executor.submit(colorTempLight, location, color_temp)
-                    print(f"{location}: restoring {color_temp}K")
+                    # print(f"{location}: restoring {color_temp}K")
                 else:
                     executor.submit(rgbLight, location, color)
-                    print(f"{location}: restoring {color}")
+                    # print(f"{location}: restoring {color}")
 
                 executor.submit(rgbBrightness, location, brightness)
-                print(f"{location}: restoring brightness {brightness}")
+                # print(f"{location}: restoring brightness {brightness}")
 
         print("Done score trigger")
 

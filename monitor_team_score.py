@@ -17,6 +17,8 @@ import os
 
 import argparse
 
+debug = False
+
 TEAM_ABBREVIATIONS = {
     "diamondbacks": "ARI", "dbacks": "ARI", "ari": "ARI",
     "braves": "ATL", "atl": "ATL",
@@ -50,10 +52,12 @@ TEAM_ABBREVIATIONS = {
     "nationals": "WSH", "wsh": "WSH",
 }
 
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Monitor a team's live score.")
     parser.add_argument("team", help="Team name or abbreviation, e.g. 'yankees' or 'nyy'")
     return parser.parse_args()
+
 
 def get_selected_team(args):
     key = args.team.lower().replace(" ", "")
@@ -61,6 +65,8 @@ def get_selected_team(args):
         valid = ", ".join(sorted(set(TEAM_ABBREVIATIONS.keys())))
         raise SystemExit(f"Unknown team '{args.team}'. Valid options:\n{valid}")
     return TEAM_ABBREVIATIONS[key]
+
+
 
 def monitor_team_score(team_abbreviation, score_trigger):
     next_call = time.monotonic()
@@ -89,33 +95,20 @@ def monitor_team_score(team_abbreviation, score_trigger):
         time.sleep(15)  # Wait for 15 seconds before checking again
 
     #run indefinitely to monitor the score, need to change till while game in progress
+    if get_game_state(team_abbreviation) == "in":
+        now=datetime.now()
+        new_score = get_team_score(team_abbreviation)
+        print(f"--------------------------------")
+        print(f"{now.strftime('%I:%M:%S %p')}  {team_abbreviation} Score: {new_score}")
+
     while get_game_state(team_abbreviation) == "in":
         now=datetime.now()
         new_score = get_team_score(team_abbreviation)
-
-        print(f"--------------------------------")
-        print(f"{now.strftime('%I:%M:%S %p')}  {team_abbreviation} Score: {new_score}")
 
         if old_score != new_score:
 
             print(f"{team_abbreviation}: Score changed from {old_score} to {new_score}")
             score_trigger(team_abbreviation)  # Call the score_trigger function with the team abbreviation if there's a change
-        # else:
-
-
-
-            
-            # handling this inside score trigger
-            # for location in DEVICES:
-            #         state, brightness, color, color_temp = get_current_device_colors(location)
-            #         DEVICES[location]["currentState"] = {
-            #             "state": state,
-            #             "brightness": brightness,
-            #             "color": color,
-            #             "color_temp": color_temp
-            #         }
-
-            # save_devices(DEVICES)  # Save the updated DEVICES dictionary to the JSON file
 
         old_score = new_score
 
@@ -139,15 +132,8 @@ def monitor_team_score(team_abbreviation, score_trigger):
         print(matchup, shortDetail)
 
 
-        print(date)
-
-        cron_minute = date.minute
-        cron_hour = date.hour
-        cron_day = date.day
-        cron_month = date.month
-
-        print(cron_month, cron_day, cron_hour, cron_minute)
-        time.sleep(15)  # Wait for 15 seconds before checking again
+        while get_game_state(team_abbreviation) == "post":
+            time.sleep(60) #stays in this function and just waits here
 
 monitor_team = "CHC"  # Example team abbreviation
 
