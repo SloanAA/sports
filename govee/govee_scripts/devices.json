@@ -4,9 +4,9 @@
     "device": "37:EB:D0:C9:07:F6:68:C8",
     "currentState": {
       "state": 1,
-      "brightness": 50,
-      "color": null,
-      "color_temp": 2700
+      "brightness": 100,
+      "color": "#00FF00",
+      "color_temp": 0
     },
     "previousState": {
       "state": 1,
@@ -21,9 +21,9 @@
     "device": "26:1A:D0:C9:07:FE:2C:C6",
     "currentState": {
       "state": 1,
-      "brightness": 50,
-      "color": null,
-      "color_temp": 2700
+      "brightness": 100,
+      "color": "#00FF00",
+      "color_temp": 0
     },
     "previousState": {
       "state": 0,

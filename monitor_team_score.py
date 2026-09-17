@@ -15,6 +15,8 @@ from test_scripts.next_game_start import get_next_game_start
 import json
 import os
 
+from end_game import end_game_trigger
+
 import argparse
 
 debug = False
@@ -130,6 +132,12 @@ def monitor_team_score(team_abbreviation, score_trigger):
         matchup, date, shortDetail = get_next_game_start(team_abbreviation)
         print(f"Next game for {team_abbreviation}")
         print(matchup, shortDetail)
+
+        score_trigger(team_abbreviation)  # Call the score_trigger function with the team abbreviation when the game is over
+        #lets me know the game is over
+
+        end_game_trigger(my_score > opponent_score)  # Call the end_game_trigger function with True for a win, False for a loss
+
 
 
         while get_game_state(team_abbreviation) == "post":
