@@ -72,7 +72,6 @@ def rgbLight(light_location, hex_color):
     }
 
     response = requests.post(url, headers=headers, json=payload)
-
     if response.status_code != 200:
         print(f"Error {response.status_code}: {response.text}")
         return
@@ -82,7 +81,7 @@ def rgbLight(light_location, hex_color):
 
     save_devices(DEVICES)
 
-    print(f"{light_location} color changed to {hex_color}")
+    # print(f"{light_location} color changed to {hex_color}")
 
 def colorTempLight(light_location, color_temp):
     light_info = DEVICES[light_location]
@@ -111,7 +110,7 @@ def colorTempLight(light_location, color_temp):
 
     save_devices(DEVICES)
 
-    print(f"{light_location} color temperature changed to {color_temp}K")
+    # print(f"{light_location} color temperature changed to {color_temp}K")
 
 
 def rgbBrightness(light_location, brightness):
@@ -141,7 +140,7 @@ def rgbBrightness(light_location, brightness):
 
     save_devices(DEVICES)
 
-    print(f"{light_location} brightness changed to {brightness}")
+    # print(f"{light_location} brightness changed to {brightness}")
 
 # rgbLight("office1", "#00FF00")  # Change the light color to red
 # onOffLight("office1", 0)  # Turn off the light

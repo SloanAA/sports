@@ -1,3 +1,7 @@
+#this function is a rewritten score trigger
+
+#win = true  - green
+#loss = false  - red
 from test_scripts.game_start import get_game_start
 from test_scripts.team_specific_score import get_team_score
 import time
@@ -13,8 +17,7 @@ import json
 import os
 from govee.govee_scripts.brightnessSetting import get_brightness_setting
 
-
-def score_trigger(team_abbreviation): #still triggers on None --> 0
+def end_game_trigger(outcome): #still triggers on None --> 0
     print("Score changed! Triggering Govee lights.")
 
 
@@ -24,15 +27,13 @@ def score_trigger(team_abbreviation): #still triggers on None --> 0
             executor.submit(update_device_state, location)
 
 
-    colors = list(get_team_color(team_abbreviation))
 
-    for n in range(4):  # Change the lights 4 times
-        with ThreadPoolExecutor(max_workers=len(DEVICES)) as executor:
-            for i, location in enumerate(DEVICES):
-                color = colors[(i + n) % len(colors)]  # Cycle through the colors
-                executor.submit(rgbLight, location, color)
-            time.sleep(1)
-            print("CHANGE LIGHTS")
+    with ThreadPoolExecutor(max_workers=len(DEVICES)) as executor:
+        for location in DEVICES:
+            executor.submit(rgbLight, location, "#00FF00" if outcome else "#FF0000")
+
+    time.sleep(5)  # Change the lights to outcome for 5 seconds
+    print("CHANGE LIGHTS")
 
     with ThreadPoolExecutor(max_workers=len(DEVICES) * 2) as executor:
         print("Restoring previous state of lights...")
@@ -62,5 +63,4 @@ def score_trigger(team_abbreviation): #still triggers on None --> 0
 
         print("Done score trigger")
 
-# team_abbreviation = "CHC"
-# score_trigger(team_abbreviation)
+end_game_trigger(True)  # Call the end_game_trigger function with True for a win
