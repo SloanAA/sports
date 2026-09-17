@@ -63,4 +63,5 @@ def end_game_trigger(outcome): #still triggers on None --> 0
 
         print("Done score trigger")
 
-end_game_trigger(True)  # Call the end_game_trigger function with True for a win
+# end_game_trigger(True)  # Call the end_game_trigger function with True for a win
+#stop
