@@ -5,31 +5,23 @@ import threading
 from govee.govee_scripts.load_and_save import load_devices, save_devices
 from govee.govee_scripts.put_request import onOffLight, rgbBrightness, rgbLight, colorTempLight
 from team_color import get_team_color
-from govee.govee_scripts.state_request import get_current_device_colors, DEVICES
+from govee.govee_scripts.state_request import get_current_device_colors, DEVICES, update_device_state
 from concurrent.futures import ThreadPoolExecutor
 from test_scripts.game_live import get_game_state
 from datetime import datetime
 import json
 import os
-from brightnessSetting import get_brightness_setting
+from govee.govee_scripts.brightnessSetting import get_brightness_setting
 
 
 def score_trigger(team_abbreviation): #still triggers on None --> 0
     print("Score changed! Triggering Govee lights.")
 
 
-    for location in DEVICES:
-        state, brightness, color, color_temp = get_current_device_colors(location)
-        DEVICES[location]["currentState"] = {
-            "state": state,
-            "brightness": brightness,
-            "color": color,
-            "color_temp": color_temp
-        }
-        #  print(f"Current State: {DEVICES[location]["currentState"]}")
-        DEVICES[location]["previousState"] = DEVICES[location]["currentState"]  # Save the current state as previous state
-        score_trigger_brightness = get_brightness_setting()
-        rgbBrightness(location, score_trigger_brightness)
+    #this should look at all the states really easily and should be threaded
+    with ThreadPoolExecutor(max_workers=len(DEVICES)) as executor:
+        for location in DEVICES:
+            executor.submit(update_device_state, location)
 
 
     colors = list(get_team_color(team_abbreviation))

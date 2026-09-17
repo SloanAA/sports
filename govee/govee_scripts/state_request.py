@@ -2,7 +2,9 @@ import requests
 import os
 from dotenv import load_dotenv
 import json
+from brightnessSetting import get_brightness_setting
 from load_and_save import load_devices, save_devices
+from put_request import rgbBrightness
 
 load_dotenv()  # finds and reads .env in the current directory
 
@@ -52,3 +54,16 @@ def get_current_device_colors(light_location):
           f"brightness={brightness}, color=#{color}, color_temp={color_temp}K")
 
     return state, brightness, color, color_temp
+
+def update_device_state(location):
+    state, brightness, color, color_temp = get_current_device_colors(location)
+    DEVICES[location]["currentState"] = {
+        "state": state,
+        "brightness": brightness,
+        "color": color,
+        "color_temp": color_temp
+    }
+    #  print(f"Current State: {DEVICES[location]["currentState"]}")
+    DEVICES[location]["previousState"] = DEVICES[location]["currentState"]  # Save the current state as previous state
+    score_trigger_brightness = get_brightness_setting()
+    rgbBrightness(location, score_trigger_brightness)
