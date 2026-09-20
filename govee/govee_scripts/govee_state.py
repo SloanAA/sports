@@ -2,9 +2,9 @@ import requests
 import os
 from dotenv import load_dotenv
 import json
-from govee.govee_scripts.govee_config import get_brightness_setting
-from govee.govee_scripts.govee_load_and_save import load_devices, save_devices
-from govee.govee_scripts.govee_put import rgbBrightness
+from govee_config import get_brightness_setting
+from govee_load_and_save import load_devices, save_devices
+from govee_put import rgbBrightness
 
 load_dotenv()  # finds and reads .env in the current directory
 
@@ -67,3 +67,5 @@ def update_device_state(location):
     DEVICES[location]["previousState"] = DEVICES[location]["currentState"]  # Save the current state as previous state
     score_trigger_brightness = get_brightness_setting()
     rgbBrightness(location, score_trigger_brightness)
+
+update_device_state("office1")  # Example usage for a device located in "office1"

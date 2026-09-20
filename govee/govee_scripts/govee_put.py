@@ -5,7 +5,7 @@ import requests
 import os
 from dotenv import load_dotenv
 import json
-from govee.govee_scripts.govee_load_and_save import load_devices, save_devices
+from govee_load_and_save import load_devices, save_devices
 
 load_dotenv()  # finds and reads .env in the current directory
 
@@ -143,5 +143,5 @@ def rgbBrightness(light_location, brightness):
     # print(f"{light_location} brightness changed to {brightness}")
 
 # rgbLight("office1", "#00FF00")  # Change the light color to red
-# onOffLight("office1", 0)  # Turn off the light
+# onOffLight("office1", 1)  # Turn off the light
 # rgbBrightness("office1", 50)  # Change the light brightness to 50%

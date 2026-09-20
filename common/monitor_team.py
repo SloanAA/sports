@@ -1,21 +1,21 @@
-from test_scripts.team_specific_score import get_team_score
+from baseball.test_scripts.espn.team.espn_team_score import get_team_score
 import time
 import threading
 from govee.govee_scripts.load_and_save import load_devices, save_devices
 from govee.govee_scripts.put_request import rgbLight, colorTempLight
-from team_color import get_team_color
+from baseball.test_scripts.color.mlb_team_color import get_team_color
 from govee.govee_scripts.state_request import get_current_device_colors, DEVICES
 from concurrent.futures import ThreadPoolExecutor
-from test_scripts.game_live import get_game_state
-from test_scripts.game_start import get_game_start
+from baseball.test_scripts.espn.game.espn_game_status import get_game_state
+from baseball.test_scripts.espn.game.espn_game_start import get_game_start
 from datetime import datetime
 from score_trigger import score_trigger
-from test_scripts.game_summary import get_game_summary
-from test_scripts.next_game_start import get_next_game_start
+from baseball.test_scripts.espn.game.espn_game_final_summary import get_game_summary
+from baseball.test_scripts.espn.game.espn_game_next import get_next_game_start
 import json
 import os
 
-from end_game import end_game_trigger
+from common.end_game import end_game_trigger
 
 import argparse
 

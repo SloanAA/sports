@@ -2,8 +2,8 @@
 
 #win = true  - green
 #loss = false  - red
-from test_scripts.game_start import get_game_start
-from test_scripts.team_specific_score import get_team_score
+from baseball.test_scripts.espn.game.espn_game_start import get_game_start
+from baseball.test_scripts.espn.team.espn_team_score import get_team_score
 import time
 import threading
 from govee.govee_scripts.load_and_save import load_devices, save_devices
@@ -11,11 +11,11 @@ from govee.govee_scripts.put_request import onOffLight, rgbBrightness, rgbLight,
 from team_color import get_team_color
 from govee.govee_scripts.state_request import get_current_device_colors, DEVICES, update_device_state
 from concurrent.futures import ThreadPoolExecutor
-from test_scripts.game_live import get_game_state
+from baseball.mlb.espn.game.espn_game_status import get_game_state
 from datetime import datetime
 import json
 import os
-from govee.govee_scripts.brightnessSetting import get_brightness_setting
+from govee.govee_scripts.govee_settings import get_brightness_setting
 
 def end_game_trigger(outcome): #still triggers on None --> 0
     print("Score changed! Triggering Govee lights.")

@@ -1,18 +1,24 @@
-from test_scripts.game_start import get_game_start
-from test_scripts.team_specific_score import get_team_score
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from baseball.mlb.espn.game.espn_game_start import get_game_start
+from baseball.mlb.espn.team.mlb_team_score import get_team_score
 import time
+from datetime import datetime
+from zoneinfo import ZoneInfo
 import threading
-from govee.govee_scripts.load_and_save import load_devices, save_devices
-from govee.govee_scripts.put_request import onOffLight, rgbBrightness, rgbLight, colorTempLight
-from team_color import get_team_color
-from govee.govee_scripts.state_request import get_current_device_colors, DEVICES, update_device_state
+from govee.govee_scripts.govee_load_and_save import load_devices, save_devices
+from govee.govee_scripts.govee_put import onOffLight, rgbBrightness, rgbLight, colorTempLight
+from baseball.mlb.espn.team.mlb_team_color import get_team_color
+from govee.govee_scripts.govee_state import get_current_device_colors, DEVICES, update_device_state
 from concurrent.futures import ThreadPoolExecutor
-from test_scripts.game_live import get_game_state
+from baseball.mlb.espn.game.espn_game_status import get_game_state
 from datetime import datetime
 import json
 import os
-from govee.govee_scripts.brightnessSetting import get_brightness_setting
+from govee.govee_scripts.govee_config import get_brightness_setting
 
+#should really make a scene because this govee api call is SLOW 
 
 def score_trigger(team_abbreviation): #still triggers on None --> 0
     print("Score changed! Triggering Govee lights.")
@@ -31,8 +37,9 @@ def score_trigger(team_abbreviation): #still triggers on None --> 0
             for i, location in enumerate(DEVICES):
                 color = colors[(i + n) % len(colors)]  # Cycle through the colors
                 executor.submit(rgbLight, location, color)
-            time.sleep(1)
-            print("CHANGE LIGHTS")
+        print("CHANGE LIGHTS")
+        print(f"{n} fetch at {datetime.now(ZoneInfo("America/New_York"))}")
+        time.sleep(1)
 
     with ThreadPoolExecutor(max_workers=len(DEVICES) * 2) as executor:
         print("Restoring previous state of lights...")
@@ -62,5 +69,5 @@ def score_trigger(team_abbreviation): #still triggers on None --> 0
 
         print("Done score trigger")
 
-# team_abbreviation = "CHC"
-# score_trigger(team_abbreviation)
+team_abbreviation = "CHC"
+score_trigger(team_abbreviation)

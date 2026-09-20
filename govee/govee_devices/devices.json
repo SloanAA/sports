@@ -5,8 +5,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#0004FF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "previousState": {
       "state": 1,
@@ -14,7 +14,7 @@
       "color": "0004ff",
       "color_temp": 0
     },
-    "state": 0
+    "state": 1
   },
   "office2": {
     "sku": "H6008",
@@ -22,8 +22,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FFFFFF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "previousState": {
       "state": 0,
@@ -39,8 +39,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FF0000",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -50,8 +50,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#0004FF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -61,8 +61,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FFFFFF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -72,8 +72,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FF0000",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -83,8 +83,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#0004FF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -94,8 +94,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FFFFFF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -105,8 +105,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FF0000",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -115,9 +115,9 @@
     "device": "96:4F:D0:C9:07:EE:31:C4",
     "currentState": {
       "state": 1,
-      "brightness": 50,
-      "color": "ff0000",
-      "color_temp": 0
+      "brightness": 30,
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -127,8 +127,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FFFFFF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -138,8 +138,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FF0000",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -149,8 +149,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#0004FF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -160,8 +160,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FFFFFF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -171,8 +171,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#FF0000",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   },
@@ -182,8 +182,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": "#0004FF",
-      "color_temp": 0
+      "color": null,
+      "color_temp": 2700
     },
     "state": 0
   }
