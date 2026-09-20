@@ -1,21 +1,14 @@
-from baseball.test_scripts.espn.team.espn_team_score import get_team_score
+import baseball
 import time
 import threading
-from govee.govee_scripts.load_and_save import load_devices, save_devices
-from govee.govee_scripts.put_request import rgbLight, colorTempLight
-from baseball.test_scripts.color.mlb_team_color import get_team_color
-from govee.govee_scripts.state_request import get_current_device_colors, DEVICES
+import govee
 from concurrent.futures import ThreadPoolExecutor
-from baseball.test_scripts.espn.game.espn_game_status import get_game_state
-from baseball.test_scripts.espn.game.espn_game_start import get_game_start
 from datetime import datetime
 from score_trigger import score_trigger
-from baseball.test_scripts.espn.game.espn_game_final_summary import get_game_summary
-from baseball.test_scripts.espn.game.espn_game_next import get_next_game_start
 import json
 import os
 
-from common.end_game import end_game_trigger
+from end_game import end_game_trigger
 
 import argparse
 
@@ -86,26 +79,26 @@ def monitor_team_score(team_abbreviation, score_trigger):
     
     # save_devices(DEVICES)  # save that current state
 
-    while get_game_state(team_abbreviation) == "pre":
+    while mlb.get_game_state(team_abbreviation) == "pre":
         print(f"--------------------------------")
 
         now=datetime.now()
         print(f"{now.strftime('%I:%M:%S %p')}\nWaiting for {team_abbreviation} game to start...")
 
-        print(f"Next game for {team_abbreviation} is at {get_game_state(team_abbreviation)}")
+        print(f"Next game for {team_abbreviation} is at {mlb.get_game_state(team_abbreviation)}")
 
         time.sleep(15)  # Wait for 15 seconds before checking again
 
     #run indefinitely to monitor the score, need to change till while game in progress
-    if get_game_state(team_abbreviation) == "in":
+    if mlb.get_game_state(team_abbreviation) == "in":
         now=datetime.now()
-        new_score = get_team_score(team_abbreviation)
+        new_score = mlb.get_team_score(team_abbreviation)
         print(f"--------------------------------")
         print(f"{now.strftime('%I:%M:%S %p')}  {team_abbreviation} Score: {new_score}")
 
-    while get_game_state(team_abbreviation) == "in":
+    while mlb.get_game_state(team_abbreviation) == "in":
         now=datetime.now()
-        new_score = get_team_score(team_abbreviation)
+        new_score = mlb.get_team_score(team_abbreviation)
 
         if old_score != new_score:
 
@@ -119,8 +112,8 @@ def monitor_team_score(team_abbreviation, score_trigger):
         if sleep_time > 0:
             time.sleep(sleep_time)
 
-    if get_game_state(team_abbreviation) == "post":
-        game_summary = get_game_summary(team_abbreviation)
+    if mlb.get_game_state(team_abbreviation) == "post":
+        game_summary = mlb.get_game_summary(team_abbreviation)
 
         team, my_score, my_hits, my_errors, my_records, opponent, opponent_score, opponent_hits, opponent_errors, opponent_records = get_game_summary(team_abbreviation)
 
@@ -140,7 +133,7 @@ def monitor_team_score(team_abbreviation, score_trigger):
 
 
 
-        while get_game_state(team_abbreviation) == "post":
+        while mlb.get_game_state(team_abbreviation) == "post":
             time.sleep(60) #stays in this function and just waits here
 
 monitor_team = "CHC"  # Example team abbreviation

@@ -9,7 +9,7 @@ def get_opponent(matchup, team_abbreviation):
     return home if away == team_abbreviation else away
 
 
-def get_next_game_start(team_abbreviation):
+def get_game_next(team_abbreviation):
     load_dotenv()
 
     url = f"https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/{team_abbreviation}/schedule"
