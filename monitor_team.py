@@ -1,4 +1,4 @@
-import baseball
+import baseball.mlb
 import time
 import threading
 import govee
