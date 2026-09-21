@@ -28,37 +28,64 @@ def get_selected_team(args):
         raise SystemExit(f"Unknown team '{args.team}'. Valid options:\n{valid}")
     return mlb.team_abbreviations.TEAM_ABBREVIATIONS[key]
 
-def next_call_delay(current_time, interval):
-        next_call = current_time + interval
-        sleep_time = next_call - current_time
-        print(f"Next check in {sleep_time:.2f} seconds...")
-        if sleep_time > 0:
-            time.sleep(sleep_time)
+
 
 def monitor_team_score(team_abbreviation, score_trigger):
+    next_call = time.monotonic()
     old_score = 0
 
 
     while mlb.get_game_state(team_abbreviation) == "pre":
+        print(f"--------------------------------")
+        now=datetime.now()
+        print(f"{now.strftime('%I:%M:%S %p')}\nWaiting for {team_abbreviation} game to start...")
+        print(f"Next game for {team_abbreviation} is at {mlb.get_game_state(team_abbreviation)}")
+
         time.sleep(15)  # Wait for 15 seconds before checking again
 
+    #run indefinitely to monitor the score, need to change till while game in progress
+    if mlb.get_game_state(team_abbreviation) == "in":
+        now=datetime.now()
+        new_score = mlb.get_team_score(team_abbreviation)
+        print(f"--------------------------------")
+        print(f"{now.strftime('%I:%M:%S %p')}  {team_abbreviation} Score: {new_score}")
+
     while mlb.get_game_state(team_abbreviation) == "in":
-        current_time = time.monotonic()
+        now=datetime.now()
         new_score = mlb.get_team_score(team_abbreviation)
 
         if old_score != new_score:
+
             print(f"{team_abbreviation}: Score changed from {old_score} to {new_score}")
             score_trigger(team_abbreviation)  # Call the score_trigger function with the team abbreviation if there's a change
 
         old_score = new_score
 
-        next_call_delay(current_time, 5)  # Wait for 5 seconds before checking again
+        next_call += 5
+        sleep_time = next_call - time.monotonic()
+        if sleep_time > 0:
+            time.sleep(sleep_time)
 
     if mlb.get_game_state(team_abbreviation) == "post":
-        my_score, opponent_score = mlb.get_game_summary(team_abbreviation)
+        game_summary = mlb.get_game_summary(team_abbreviation)
+
+        team, my_score, my_hits, my_errors, my_records, opponent, opponent_score, opponent_hits, opponent_errors, opponent_records = mlb.get_game_summary(team_abbreviation)
+
+        print(f"Final    Runs    Hits    Errors")
+        print(f"{team}      {my_score}       {my_hits}       {my_errors}         ({my_records})")
+        print(f"{opponent}      {opponent_score}       {opponent_hits}       {opponent_errors}         ({opponent_records})")
+
+        print("-----------------------------------------------")
+        matchup, date, shortDetail = mlb.get_next_game_start(team_abbreviation)
+        print(f"Next game for {team_abbreviation}")
+        print(matchup, shortDetail)
 
         score_trigger(team_abbreviation)  # Call the score_trigger function with the team abbreviation when the game is over
+        #lets me know the game is over
+
         end_game_trigger(my_score > opponent_score)  # Call the end_game_trigger function with True for a win, False for a loss
+
+
 
         while mlb.get_game_state(team_abbreviation) == "post":
             time.sleep(60) #stays in this function and just waits here
@@ -69,6 +96,7 @@ def run_monitor_team_score(team_abbreviation):
     while True:
         monitor_team_score(team_abbreviation, score_trigger)
 
+# run_monitor_team_score()
 
 if __name__ == "__main__":
     args = parse_args()

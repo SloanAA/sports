@@ -1,1 +1,1 @@
-from baseball.mlb import *
+from .mlb import *

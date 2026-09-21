@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 import threading
 from govee.govee_scripts.govee_load_and_save import load_devices, save_devices
 from govee.govee_scripts.govee_put import onOffLight, rgbBrightness, rgbLight, colorTempLight
-from baseball.mlb.espn.team.mlb_team_color import get_team_color
+from baseball.mlb.team.mlb_team_color import get_team_color
 from govee.govee_scripts.govee_state import get_current_device_colors, DEVICES, update_device_state
 from concurrent.futures import ThreadPoolExecutor
 from baseball.mlb.espn.game.espn_game_status import get_game_state

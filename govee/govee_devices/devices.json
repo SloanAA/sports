@@ -5,8 +5,8 @@
     "currentState": {
       "state": 1,
       "brightness": 100,
-      "color": null,
-      "color_temp": 2700
+      "color": "0004ff",
+      "color_temp": 0
     },
     "previousState": {
       "state": 1,
@@ -21,7 +21,7 @@
     "device": "26:1A:D0:C9:07:FE:2C:C6",
     "currentState": {
       "state": 1,
-      "brightness": 50,
+      "brightness": 100,
       "color": null,
       "color_temp": 2700
     },
@@ -38,9 +38,9 @@
     "device": "8B:37:98:17:3C:13:E8:22",
     "currentState": {
       "state": 1,
-      "brightness": 50,
-      "color": null,
-      "color_temp": 2700
+      "brightness": 10,
+      "color": "ff0000",
+      "color_temp": 0
     },
     "state": 0
   },
@@ -49,9 +49,9 @@
     "device": "F8:C7:98:17:3C:0E:7E:AA",
     "currentState": {
       "state": 1,
-      "brightness": 50,
-      "color": null,
-      "color_temp": 2700
+      "brightness": 10,
+      "color": "0004ff",
+      "color_temp": 0
     },
     "state": 0
   },
@@ -60,7 +60,7 @@
     "device": "1B:17:D0:C9:07:F9:FA:B0",
     "currentState": {
       "state": 1,
-      "brightness": 50,
+      "brightness": 100,
       "color": null,
       "color_temp": 2700
     },
@@ -71,7 +71,7 @@
     "device": "CB:30:D0:C9:07:FC:73:02",
     "currentState": {
       "state": 1,
-      "brightness": 50,
+      "brightness": 10,
       "color": null,
       "color_temp": 2700
     },
@@ -82,9 +82,9 @@
     "device": "2C:A5:D0:C9:07:FC:39:86",
     "currentState": {
       "state": 1,
-      "brightness": 50,
-      "color": null,
-      "color_temp": 2700
+      "brightness": 10,
+      "color": "0004ff",
+      "color_temp": 0
     },
     "state": 0
   },
@@ -93,7 +93,7 @@
     "device": "45:7F:D0:C9:07:F0:C9:A2",
     "currentState": {
       "state": 1,
-      "brightness": 50,
+      "brightness": 10,
       "color": null,
       "color_temp": 2700
     },
@@ -104,9 +104,9 @@
     "device": "3F:EB:D0:C9:07:FE:A5:8C",
     "currentState": {
       "state": 1,
-      "brightness": 50,
-      "color": null,
-      "color_temp": 2700
+      "brightness": 10,
+      "color": "ff0000",
+      "color_temp": 0
     },
     "state": 0
   },
@@ -115,7 +115,7 @@
     "device": "96:4F:D0:C9:07:EE:31:C4",
     "currentState": {
       "state": 1,
-      "brightness": 30,
+      "brightness": 10,
       "color": null,
       "color_temp": 2700
     },
@@ -126,7 +126,7 @@
     "device": "D6:A3:98:17:3C:25:C5:96",
     "currentState": {
       "state": 1,
-      "brightness": 50,
+      "brightness": 100,
       "color": null,
       "color_temp": 2700
     },
@@ -137,9 +137,9 @@
     "device": "A0:16:98:17:3C:1A:FB:5E",
     "currentState": {
       "state": 1,
-      "brightness": 50,
-      "color": null,
-      "color_temp": 2700
+      "brightness": 10,
+      "color": "ff0000",
+      "color_temp": 0
     },
     "state": 0
   },
@@ -148,9 +148,9 @@
     "device": "33:0F:98:17:3C:1A:FB:56",
     "currentState": {
       "state": 1,
-      "brightness": 50,
-      "color": null,
-      "color_temp": 2700
+      "brightness": 10,
+      "color": "0004ff",
+      "color_temp": 0
     },
     "state": 0
   },
@@ -159,7 +159,7 @@
     "device": "07:0C:98:17:3C:25:C5:CC",
     "currentState": {
       "state": 1,
-      "brightness": 50,
+      "brightness": 100,
       "color": null,
       "color_temp": 2700
     },
@@ -170,7 +170,7 @@
     "device": "D6:46:98:17:3C:14:91:F4",
     "currentState": {
       "state": 1,
-      "brightness": 50,
+      "brightness": 100,
       "color": null,
       "color_temp": 2700
     },
@@ -181,7 +181,7 @@
     "device": "ED:04:98:17:3C:14:BD:14",
     "currentState": {
       "state": 1,
-      "brightness": 50,
+      "brightness": 100,
       "color": null,
       "color_temp": 2700
     },

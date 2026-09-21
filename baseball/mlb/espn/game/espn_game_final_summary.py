@@ -43,7 +43,8 @@ def get_game_summary(team_abbreviation):
                     opponent_hits = hits
                     opponent_errors = errors
                     opponent_records = records
-            return team_abbreviation, my_score, my_hits, my_errors, my_records, opponent, opponent_score, opponent_hits, opponent_errors, opponent_records
+            # return (team_abbreviation, my_score, my_hits, my_errors, my_records, opponent, opponent_score, opponent_hits, opponent_errors, opponent_records)
+            return my_score, opponent_score
 
 # team_abbreviation = "MIL"  # Example team abbreviation
 # team, my_score, my_hits, my_errors, my_records, opponent, opponent_score, opponent_hits, opponent_errors, opponent_records = get_game_summary(team_abbreviation)
